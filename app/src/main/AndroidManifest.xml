@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android_service">
+<!--    Xin quyền chạy FOREGROUND_SERVICE-->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 <!-- Khai báo cái MyApplication - cái tạo 1 channel Notification ở android Manifest -->
     <application
@@ -21,9 +22,10 @@
             </intent-filter>
         </activity>
         <service android:name=".MyService"/>
-<!--        Khai báo service được tạo ra -->
-<!--        Sử dụng  foreground cần xin quyền FOREGROUND_SERVICE-->
-<!--        3 bước : 1, tạo service phải khai báo trong  manifest
+<!--
+ Khai báo service được tạo ra
+Sử dụng  foreground cần xin quyền FOREGROUND_SERVICE
+3 bước : 1, tạo service phải khai báo trong  manifest
 2 : xin quyền
 3: Sử lý code liên quan foreground
 -->
