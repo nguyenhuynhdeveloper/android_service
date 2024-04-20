@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,11 @@ import android.widget.EditText;
  */
 public class MainActivity extends AppCompatActivity {
 
-// Khai báo view ở bên ngoài các vòng đời
+
+    private static final java.lang.String TAG = "SERVICE";
+
+
+    // Khai báo view ở bên ngoài các vòng đời
     private EditText edt_data_intent;
     private Button btn_start_service;
     private Button btn_stop_service;
@@ -52,14 +57,19 @@ public class MainActivity extends AppCompatActivity {
     private void clickStartService() {
         // Put dữ liệu thông qua Intent này luôn
         Intent intent = new Intent(this, MyService.class);
-        intent.putExtra("key_data_intent", edt_data_intent.getText().toString().trim());  // Đưa dữ liệu vào với cái key là key_data_intent
-        startService(intent);
+        intent.putExtra("key_data_intent", edt_data_intent.getText().toString().trim());
+        // Đưa dữ liệu vào với cái key là key_data_intent
+        startService(intent);   // Khởi động Service
+
+        Log.d( TAG, "Start Service");
     }
 
     // Hàm Stop Service
     private void clickStopService() {
         Intent intent = new Intent(this, MyService.class);
-        stopService(intent);
+        stopService(intent);   // Dừng Service
+        Log.d( TAG, "Stop Service");
+
 
     }
 
